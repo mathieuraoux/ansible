@@ -1,0 +1,12 @@
+---
+
+students_list:
+- hostname: "clement.bassard-1"
+  network_ip: "10.10.0.201"
+  vmid: 301
+- hostname: "clement.bassard-2"
+  network_ip: "10.10.0.202"
+  vmid: 302
+- hostname: "clement.bassard-3"
+  network_ip: "10.10.0.203"
+  vmid: 303
