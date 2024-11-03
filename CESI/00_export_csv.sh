@@ -16,7 +16,7 @@ function increase_variable(){
 function add_line_in_yml(){
     inventory_path=$1
     yaml_path=$2
-    echo "${fist_name,,}.${last_name,,} ansible_host=10.10.0.${ip_digit}" >> "${inventory_path}"
+    echo "${fist_name,,}.${last_name,,}-${hostname_digit} ansible_host=10.10.0.${ip_digit}" >> "${inventory_path}"
     echo -e "- hostname: \"${fist_name,,}.${last_name,,}-${hostname_digit}\"\n  network_ip: \"10.10.0.${ip_digit}\"\n  vmid: ${vmid}" >> "${yaml_path}"
 
 }
