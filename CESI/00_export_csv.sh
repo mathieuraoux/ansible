@@ -17,7 +17,7 @@ function add_line_in_yml(){
     inventory_path=$1
     yaml_path=$2
     echo "${first_name,,}.${last_name,,}-${hostname_digit} ansible_host=10.10.0.${ip_digit}" >> "${inventory_path}"
-    echo -e "- hostname: \"${first_name,,}.${last_name,,}-${hostname_digit}\"\n  network_ip: \"10.10.0.${ip_digit}\"\n  vmid: ${vmid}" >> "${yaml_path}"
+    echo -e "- hostname: \"${first_name,,}.${last_name,,}-${hostname_digit}\"\n  network_ip: \"10.10.0.${ip_digit}\"\n  vmid: ${vmid}\n  password: \"${password}\"\n  user: \"${first_name,,}.${last_name,,}\"" >> "${yaml_path}"
 
 }
 
@@ -33,6 +33,7 @@ cat ${cesi_students_1_filename} | while read line
 do
     first_name=$(echo ${line} | awk -F ";" '{ print $2 }')
     last_name=$(echo ${line} | awk -F ";" '{ print $1 }')
+    password=$(echo ${line} | awk -F ";" '{ print $3 }')
     hostname_digit=0
 
     for i in {1..3}
@@ -46,6 +47,7 @@ cat ${cesi_students_2_filename} | while read line
 do
     first_name=$(echo ${line} | awk -F ";" '{ print $2 }')
     last_name=$(echo ${line} | awk -F ";" '{ print $1 }')
+    password=$(echo ${line} | awk -F ";" '{ print $3 }')
     hostname_digit=0
 
     for i in {1..3}
