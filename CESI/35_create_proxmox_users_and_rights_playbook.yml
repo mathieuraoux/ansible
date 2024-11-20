@@ -1,0 +1,41 @@
+---
+
+- name: "create_proxmox_users_and_rights" 
+  hosts: ns3232007
+  gather_facts: no
+  tasks:
+    - name: "create promox user"
+      shell:  "pveum user add {{ item.user }}@RAOUX" 
+      with_items: "{{ students_list }}"
+      when: "'1' in item.hostname"
+      register: create_user_result
+      changed_when: 
+        - create_user_result.rc != 255
+      failed_when: 
+        - create_user_result.rc != 0
+        - create_user_result.rc != 255
+
+    - name: "add promox user to CESI group"
+      shell:  "pveum usermod {{ item.user }}@RAOUX -group 'CESI'" 
+      with_items: "{{ students_list }}"
+      when: "'1' in item.hostname"
+      register: group_result
+      changed_when: 
+        - group_result.rc != 255
+      failed_when: 
+        - group_result.rc != 0
+        - group_result.rc != 255
+
+    - name: "add roles"
+      shell:  "pveum acl modify /vms/{{ item.vmid }} --roles Administrator --users {{ item.user }}@RAOUX"
+      with_items: "{{ students_list }}"
+      register: roles_result
+      tags: test
+      changed_when: 
+        - roles_result.rc != 255
+      failed_when: 
+        - roles_result.rc != 0
+        - roles_result.rc != 255
+
+  vars_files:
+    - vars/students.yml
