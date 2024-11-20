@@ -1,0 +1,21 @@
+---
+
+- name: "minimal_action_playbook"
+  hosts: all
+  gather_facts: no
+  tasks:
+    - name: "install epel"
+      ansible.builtin.package:
+        name: epel-release
+        state: present
+
+    - name: "dns client"
+      community.general.nmcli:
+        conn_name: "System net0"
+        type: ethernet
+        dns4:
+        - 10.10.0.1
+        dns4_search:
+        - raoux.lab
+        state: present
+
