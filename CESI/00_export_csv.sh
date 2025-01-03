@@ -57,7 +57,6 @@ do
     done
 done
 
-
 cat ${cesi_students_1_filename} | while read line
 do
     first_name=$(echo ${line} | awk -F ";" '{ print $2 }')
@@ -65,18 +64,18 @@ do
     password=$(echo ${line} | awk -F ";" '{ print $3 }')
     hostname_digit=0
 
-    mkdir /root/mail -p
+    mkdir /root/mail/students_1/ -p
     
-    echo "Bonjour ${first_name}," > /root/mail/${first_name}.${last_name}.txt
-    echo >> /root/mail/${first_name}.${last_name}.txt
-    echo "Un compte a été créé avec le login ${first_name,,}.${last_name,,} et le mot de passe: \"${password}\""  >> /root/mail/${first_name}.${last_name}.txt
-    echo "Ce compte peut-être utilisé sur le Proxmox https://horus.raoux.ovh:8006 ." >> /root/mail/${first_name}.${last_name}.txt
-    echo "Vous avez 3 machines de TP pour vous ${first_name,,}.${last_name,,}-1 ${first_name,,}.${last_name,,}-2 ${first_name,,}.${last_name,,}-3 le mot de passe /root de ces machines est CESI2024 ." >> /root/mail/${first_name}.${last_name}.txt
-    echo "Il est possible de se connecter en SSH à ces machines via le serveur VPN dont les instructions ont été envoyé sur le mail de la promo" >> /root/mail/${first_name}.${last_name}.txt
-    echo "Pas besoin de connaître l'IP une entrée DNS existe correspondant au nom de la machine" >> /root/mail/${first_name}.${last_name}.txt
-    echo >> /root/mail/${first_name}.${last_name}.txt
-    echo "Cordialement," >> /root/mail/${first_name}.${last_name}.txt
-    echo "Mathieu RAOUX" >> /root/mail/${first_name}.${last_name}.txt
+    echo "Bonjour ${first_name}," > /root/mail/students_1/${first_name}.${last_name}.txt
+    echo >> /root/mail/students_1/${first_name}.${last_name}.txt
+    echo "Un compte a été créé avec le login ${first_name,,}.${last_name,,} et le mot de passe: \"${password}\""  >> /root/mail/students_1/${first_name}.${last_name}.txt
+    echo "Ce compte peut-être utilisé sur le Proxmox https://horus.raoux.ovh:8006 ." >> /root/mail/students_1/${first_name}.${last_name}.txt
+    echo "Vous avez 3 machines de TP pour vous ${first_name,,}.${last_name,,}-1 ${first_name,,}.${last_name,,}-2 ${first_name,,}.${last_name,,}-3 le mot de passe /root de ces machines est CESI2024 ." >> /root/mail/students_1/${first_name}.${last_name}.txt
+    echo "Il est possible de se connecter en SSH à ces machines via le serveur VPN dont les instructions ont été envoyé sur le mail de la promo" >> /root/mail/students_1/${first_name}.${last_name}.txt
+    echo "Pas besoin de connaître l'IP une entrée DNS existe correspondant au nom de la machine" >> /root/mail/students_1/${first_name}.${last_name}.txt
+    echo >> /root/mail/students_1/${first_name}.${last_name}.txt
+    echo "Cordialement," >> /root/mail/students_1/${first_name}.${last_name}.txt
+    echo "Mathieu RAOUX" >> /root/mail/students_1/${first_name}.${last_name}.txt
 
 done
 
@@ -87,18 +86,18 @@ do
     password=$(echo ${line} | awk -F ";" '{ print $3 }')
     hostname_digit=0
 
-    mkdir /root/mail -p
+    mkdir /root/mail/students_2/ -p
     
-    echo "Bonjour ${first_name}," > /root/mail/${first_name}.${last_name}.txt
-    echo >> /root/mail/${first_name}.${last_name}.txt
-    echo "Un compte a été créé avec le login ${first_name,,}.${last_name,,} et le mot de passe: \"${password}\""  >> /root/mail/${first_name}.${last_name}.txt
-    echo "Ce compte peut-être utilisé sur le Proxmox https://horus.raoux.ovh:8006 ." >> /root/mail/${first_name}.${last_name}.txt
-    echo "Vous avez 3 machines de TP pour vous ${first_name,,}.${last_name,,}-1 ${first_name,,}.${last_name,,}-2 ${first_name,,}.${last_name,,}-3 le mot de passe /root de ces machines est CESI2024 ." >> /root/mail/${first_name}.${last_name}.txt
-    echo "Il est possible de se connecter en SSH à ces machines via le serveur VPN dont les instructions ont été envoyé sur le mail de la promo" >> /root/mail/${first_name}.${last_name}.txt
-    echo "Pas besoin de connaître l'IP une entrée DNS existe correspondant au nom de la machine" >> /root/mail/${first_name}.${last_name}.txt
-    echo >> /root/mail/${first_name}.${last_name}.txt
-    echo "Cordialement," >> /root/mail/${first_name}.${last_name}.txt
-    echo "Mathieu RAOUX" >> /root/mail/${first_name}.${last_name}.txt
+    echo "Bonjour ${first_name}," > /root/mail/students_2/${first_name}.${last_name}.txt
+    echo >> /root/mail/students_2/${first_name}.${last_name}.txt
+    echo "Un compte a été créé avec le login ${first_name,,}.${last_name,,} et le mot de passe: \"${password}\""  >> /root/mail/students_2/${first_name}.${last_name}.txt
+    echo "Ce compte peut-être utilisé sur le Proxmox https://horus.raoux.ovh:8006 ." >> /root/mail/students_2/${first_name}.${last_name}.txt
+    echo "Vous avez 3 machines de TP pour vous ${first_name,,}.${last_name,,}-1 ${first_name,,}.${last_name,,}-2 ${first_name,,}.${last_name,,}-3 le mot de passe /root de ces machines est \"${password}\" ." >> /root/mail/students_2/${first_name}.${last_name}.txt
+    echo "Il est possible de se connecter en SSH à ces machines via le serveur VPN dont les instructions ont été envoyé sur le mail de la promo" >> /root/mail/students_2/${first_name}.${last_name}.txt
+    echo "Pas besoin de connaître l'IP une entrée DNS existe correspondant au nom de la machine exemple: ${first_name}.${last_name}-1.raoux.lab" >> /root/mail/students_2/${first_name}.${last_name}.txt
+    echo >> /root/mail/students_2/${first_name}.${last_name}.txt
+    echo "Cordialement," >> /root/mail/students_2/${first_name}.${last_name}.txt
+    echo "Mathieu RAOUX" >> /root/mail/students_2/${first_name}.${last_name}.txt
 
 done
 
