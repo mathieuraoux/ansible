@@ -1,0 +1,19 @@
+---
+
+- name: "delete_proxmox_users_and_rights" 
+  hosts: ns3232007
+  gather_facts: no
+  tasks:
+    - name: "delete promox user"
+      shell:  "pveum user del {{ item.user }}@RAOUX" 
+      with_items: "{{ students_list }}"
+      when: "'1' in item.hostname"
+      register: create_user_result
+      changed_when: 
+        - create_user_result.rc != 255
+      failed_when: 
+        - create_user_result.rc != 0
+        - create_user_result.rc != 255
+
+  vars_files:
+    - vars/students.yml
