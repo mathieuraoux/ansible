@@ -19,3 +19,7 @@
         - raoux.lab
         state: present
 
+    - name: "restart networkmanager"
+      service:
+        name: "NetworkManager"
+        state: restarted
