@@ -18,5 +18,31 @@
       with_items: "{{ arbo_2_list }}"
       when: "'mathieu.raoux-3' in inventory_hostname"
 
+    - name: "7.7.2 create archive 1/2"
+      community.general.archive:
+          path: /root/
+          dest: "/root/mon_rep_{{ ansible_date_time.date }}.tgz"
+      when: "'mathieu.raoux-2' in inventory_hostname"
+
+    - name: "7.7.2 create archive 2/2"
+      community.general.archive:
+          path: /tmp
+          dest: "/tmp/mon_tmp_{{ ansible_date_time.date }}.tgz"
+      when: "'mathieu.raoux-3' in inventory_hostname"
+
+    - name: "7.7.3 download tar 1/2"
+      ansible.builtin.fetch:
+          src: "/root/mon_rep_{{ ansible_date_time.date }}.tgz"
+          dest: "mon_rep_{{ ansible_date_time.date }}.tgz"
+          flat: yes
+      when: "'mathieu.raoux-2' in inventory_hostname"
+
+    - name: "7.7.3 download tar 2/2"
+      ansible.builtin.fetch:
+          src: "/tmp/mon_tmp_{{ ansible_date_time.date }}.tgz"
+          dest: "mon_tmp_{{ ansible_date_time.date }}.tgz"
+          flat: yes
+      when: "'mathieu.raoux-3' in inventory_hostname"
+
   vars_files:
     - vars/TP0707.yml 
