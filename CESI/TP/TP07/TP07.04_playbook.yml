@@ -1,0 +1,12 @@
+---
+
+- name: "TP07 04"
+  hosts: all
+  tasks:
+    - name: "Send file"
+      ansible.builtin.copy:
+        src: tp0704
+        dest: /tmp/tp0704
+        group: tp0703
+        owner: tp0703
+    

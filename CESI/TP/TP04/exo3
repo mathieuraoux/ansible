@@ -1,0 +1,18 @@
+useradd exo3user1
+useradd exo3user2
+passwd exo3user1
+passwd exo3user2
+usermod -g exo3group exo3user1
+usermod -g exo3group exo3user2
+
+whereis cat
+echo "exo3user1	ALL=(ALL) 	/usr/bin/cat" >> /etc/sudoers
+grep -v "#" /etc/sudoers | grep -v "^\ *$"
+su exo3user1
+cat /etc/shadow
+sudo cat /etc/shadow
+su exo3user2
+sudo cat /etc/shadow
+echo "%exo3group  ALL=(ALL)   /usr/bin/cat" >> /etc/sudoers
+su exo3user2
+sudo cat /etc/shadow

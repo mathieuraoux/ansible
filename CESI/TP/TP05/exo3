@@ -1,0 +1,5 @@
+ssh exo3user1@10.10.0.252
+useradd exo3user1
+passwd exo3user1
+ssh-copy-id exo3user1@10.10.0.252
+ssh exo3user1@10.10.0.252

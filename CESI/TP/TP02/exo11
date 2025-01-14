@@ -1,0 +1,7 @@
+touch exo11
+ll exo11
+chmod u+rwx exo11
+ll exo11
+chmod 644 exo11
+ll exo11
+

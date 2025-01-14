@@ -1,0 +1,3 @@
+dd if=/dev/zero of=/var/log/cesi.log bs=2024 count=0 seek=1048576
+echo -e "/var/log/cesi.log {\nrotate 4\nsize 500M\n}\n" >> /etc/logrotate.d/cesi.log
+logrotate /etc/logrotate.conf

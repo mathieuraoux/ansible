@@ -1,0 +1,3 @@
+mkdir /root/exo6/{exo61,exo62,exo63} -p
+# -p pas indispensable on peut le faire en plusieurs commandes
+# les { pas indispensable cela permet de créer plusieurs sous répertoire en une commande

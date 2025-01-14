@@ -1,0 +1,3 @@
+arbo_de_fichiers_24-11-20.tar arbo_de_fichiers_24-11-10.tar
+touch -d 2024-11-09 17:50:00 arbo_de_fichiers_24-11-10.tar
+find . -mtime +9

@@ -1,0 +1,3 @@
+ssh-keygen -f ./exo8.key -N "toto"
+ssh-copy-id -i exo8.key.pub root@10.10.0.252
+ssh -i exo8.key root@10.10.0.252

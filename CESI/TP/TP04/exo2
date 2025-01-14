@@ -1,0 +1,10 @@
+touch exo2
+chmod 600 exo2
+su exo1
+echo test >> exo2
+
+Test étape 7
+chown exo1:exo1 exo2
+su exo1
+echo Test étape 7 >> exo2
+

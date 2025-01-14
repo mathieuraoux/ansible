@@ -1,0 +1,4 @@
+mkdir arbo_de_fichiers/{sous_arbo_1,sous_arbo2,sous_arbo3} -p
+touch arbo_de_fichiers/{sous_arbo_1,sous_arbo2,sous_arbo3}/{fichier1,fichier2,fichier3}
+tar -cvf arbo_de_fichiers_24-11-20.tar arbo_de_fichiers
+scp arbo_de_fichiers_24-11-20.tar exo3user1@10.10.0.252:/tmp
