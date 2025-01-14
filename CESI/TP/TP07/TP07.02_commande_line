@@ -1,0 +1,1 @@
+ansible -i TP07.01.inv all -m shell -a "cat /etc/redhat-release" -k 

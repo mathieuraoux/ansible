@@ -1,0 +1,29 @@
+---
+
+- name: "TP07 05"
+  hosts: all
+  gather_facts: no
+  tasks:
+    - name: "7.5.1 install apache"
+      ansible.builtin.dnf:
+        name: httpd
+        state: present
+
+    - name: "7.5.2 start apache"
+      ansible.builtin.service:
+        name: httpd
+        state: started
+        enabled: true 
+
+    - name: "7.5.4 add line in apache config file"
+      ansible.builtin.lineinfile:
+          path: /etc/httpd/conf/httpd.conf
+          state: present
+          line: "# 7.5.1 ma ligne ajouté"
+      notify: 7_5_3_RESTART_HTTPD
+
+  handlers:
+    - name: 7_5_3_RESTART_HTTPD
+      ansible.builtin.service:
+        name: httpd
+        state: restarted
