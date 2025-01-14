@@ -1,0 +1,8 @@
+---
+
+- name: "TP07 06"
+  hosts: all
+  tasks:
+    - name: "REBOOT machines"
+      ansible.builtin.reboot:
+        reboot_timeout: 300
