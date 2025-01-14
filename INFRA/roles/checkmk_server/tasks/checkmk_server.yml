@@ -1,0 +1,28 @@
+---
+
+- name: "install checkmk package"
+  ansible.builtin.dnf:
+    name: "https://download.checkmk.com/checkmk/2.3.0p23/check-mk-raw-2.3.0p23-el9-38.x86_64.rpm"
+    state: present
+    disable_gpg_check: true
+
+- name: "check if site exists already"
+  ansible.builtin.shell: "omd sites | grep -c monitoring"
+  register: checkmk_server_exists
+  tags: test
+
+- name: "create checkmk site"
+  ansible.builtin.shell: "omd create monitoring"
+  register: checkmk_server_create
+  when: checkmk_server_exists.stdout != "1"
+  tags: test
+
+- name: "start checkmk site"
+  ansible.builtin.shell: "omd start monitoring"
+  when: checkmk_server_exists.stdout != "1"
+  tags: test
+
+- name: "change password"
+  ansible.builtin.shell: "su - monitoring -c \"echo '{{ cmkadmin_password }}' | cmk-passwd -i cmkadmin\""
+  tags: test
+

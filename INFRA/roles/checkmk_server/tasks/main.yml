@@ -1,0 +1,9 @@
+---
+
+- ansible.builtin.import_tasks: lxc.yml
+  tags: lxc
+
+- ansible.builtin.import_tasks: checkmk_server.yml
+  delegate_to: hathor.raoux.lab
+  run_once: true
+  tags: checkmk_server

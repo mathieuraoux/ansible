@@ -1,0 +1,10 @@
+---
+
+- name: "create_checkmk_server"
+  hosts: system
+  gather_facts: no
+  roles:
+    - checkmk_server
+
+  vars_files:
+    - vars/proxmox.yml

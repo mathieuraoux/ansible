@@ -1,0 +1,8 @@
+---
+
+- name: "host vars"
+  hosts: all
+  tasks:
+    - name: "Display host vars"
+      debug:
+        var: toto 

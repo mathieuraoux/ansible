@@ -1,12 +1,12 @@
-[system]
-ns3232007 ansible_host=10.30.0.2
-[students]
+[bertrand]
 florian.bertrand-1 ansible_host=10.10.0.201
 florian.bertrand-2 ansible_host=10.10.0.202
 florian.bertrand-3 ansible_host=10.10.0.203
+[dossantos]
 lucca.dossantos-1 ansible_host=10.10.0.204
 lucca.dossantos-2 ansible_host=10.10.0.205
 lucca.dossantos-3 ansible_host=10.10.0.206
+[laplebe]
 nicolas.farand-1 ansible_host=10.10.0.207
 nicolas.farand-2 ansible_host=10.10.0.208
 nicolas.farand-3 ansible_host=10.10.0.209
