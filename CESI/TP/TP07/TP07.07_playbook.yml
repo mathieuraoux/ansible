@@ -1,0 +1,22 @@
+---
+
+
+- name: "TP07 07"
+  hosts: all
+  tasks:
+    - name: "7.7.1 create arbo 1/2"
+      ansible.builtin.file:
+        path: "/root/mon_rep_1/sous_rep_1"
+        state: directory
+      #with_items: "{{ arbo_1_list }}"
+      when: "'mathieu.raoux-2' in inventory_hostname"
+
+    - name: "7.7.1 create arbo 2/2"
+      ansible.builtin.file:
+        path: "{{ item }}"
+        state: directory
+      with_items: "{{ arbo_2_list }}"
+      when: "'mathieu.raoux-3' in inventory_hostname"
+
+  vars_files:
+    - vars/TP0707.yml 

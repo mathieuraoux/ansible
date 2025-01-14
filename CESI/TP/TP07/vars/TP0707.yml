@@ -1,0 +1,12 @@
+---
+
+
+arbo_1_list:
+- "/root/mon_rep_1/sous_rep_1"
+- "/root/mon_rep_2"
+- "/root/mon_rep_3"
+
+arbo_2_list:
+- "/tmp/mon_tmp_1/sous_tmp_1"
+- "/tmp/mon_tmp_2"
+- "/tmp/mon_tmp_3"
